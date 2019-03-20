@@ -13,7 +13,7 @@ const loveScoreMatrix = {
     tea: [5, 5, 5]
 }
 let loveScore
-const limitscore = 10
+const limitscore = 15
 
 let dayleft = 0
 const limitday = 0
@@ -68,15 +68,22 @@ const formButtons = function(){
 }
 
 const checklimit = function(){
+    message = ''
     if(loveScore >= limitscore)
     {
         message = 'jeep success'
-    }else
+        message += `<form action="/restart" method="POST">
+        <button>Restart</button>
+     </form>`
+        return `${titile}${scoreboard()}${image}${message}`
+
+    }else if(dayleft <= limitday)
     {
         message = 'end'
         message += `<form action="/restart" method="POST">
             <button>Restart</button>
          </form>`
+         return `${titile}${scoreboard()}${image}${message}`
     }
 
     return `${titile}${scoreboard()}${image}${message}${formButtons()}`
