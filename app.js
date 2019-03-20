@@ -13,7 +13,7 @@ const loveScoreMatrix = {
     tea: [5, 5, 5]
 }
 let loveScore
-const limitscore = 15
+const limitscore = 30
 
 let dayleft = 0
 const limitday = 0
